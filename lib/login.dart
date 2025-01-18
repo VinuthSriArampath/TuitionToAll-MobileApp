@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:tutiontoall_mobile/Institute/institute_dashboard.dart';
 import 'package:tutiontoall_mobile/widgets/alert.dart';
@@ -19,7 +20,7 @@ class _LoginState extends State<Login> {
   login() async {
     String username = usernameController.text.trim();
     String password = passwordController.text.trim();
-
+    await dotenv.load(fileName: '.env');
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
     if (username.isEmpty) {
@@ -32,11 +33,11 @@ class _LoginState extends State<Login> {
 
     String url;
     if (username.startsWith('I')) {
-      url = 'http://localhost:8080/auth/institute/login';
+      url = dotenv.env['INSTITUTE_LOGIN']!;
     } else if (username.startsWith('S')) {
-      url = 'http://localhost:8080/auth/student/login';
+      url = dotenv.env['STUDENT_LOGIN']!;
     } else if (username.startsWith('T')) {
-      url = 'http://localhost:8080/auth/teacher/login';
+      url = dotenv.env['INSTITUTE_LOGIN']!;
     } else {
       showAlertDialog(context,'Invalid Username', 'Please ');
       return;
@@ -53,7 +54,7 @@ class _LoginState extends State<Login> {
         showAlertDialog(context,'Login Success', 'Welcome Back');
         await prefs.setString('id', username );
         Navigator.push(context, MaterialPageRoute(
-            builder: (context)=>InstituteDashboard()
+            builder: (context)=>const InstituteDashboard()
         ));
       } else {
         showAlertDialog(context,'Unauthorized Login', 'Check your username and password');
