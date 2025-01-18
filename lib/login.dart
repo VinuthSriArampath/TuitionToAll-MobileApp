@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:tutiontoall_mobile/widgets/alert.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -17,6 +18,8 @@ class _LoginState extends State<Login> {
   login() async {
     String username = usernameController.text.trim();
     String password = passwordController.text.trim();
+
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
 
     if (username.isEmpty) {
       showAlertDialog(context,'Username is Required', 'Please enter your username');
@@ -47,6 +50,7 @@ class _LoginState extends State<Login> {
 
       if (response.statusCode == 200) {
         showAlertDialog(context,'Login Success', 'Welcome Back');
+        await prefs.setString('id', username );
       } else {
         showAlertDialog(context,'Unauthorized Login', 'Check your username and password');
       }
