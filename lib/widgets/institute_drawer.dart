@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tutiontoall_mobile/login.dart';
 
 class InstituteDrawer extends StatefulWidget {
   const InstituteDrawer({super.key});
@@ -150,7 +152,10 @@ class _InstituteDrawerState extends State<InstituteDrawer> {
       ),
     );
   }
-  void _logout(BuildContext context) {
-    Navigator.pushReplacementNamed(context, '/login');
+  void _logout(BuildContext context) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove('id');
+    Navigator.pushAndRemoveUntil(context,MaterialPageRoute(builder: (context) => const Login()),(route) => false,);
   }
+
 }
