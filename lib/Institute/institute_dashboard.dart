@@ -19,7 +19,6 @@ class InstituteDashboardState extends State<InstituteDashboard> {
   int noOfTeachers = 0;
   int noOfCourses = 0;
   List<Map<String, dynamic>> courseList = [];
-  bool isLoading = true; // To show loading indicator
   String errorMessage = '';
 
   @override
@@ -45,18 +44,15 @@ class InstituteDashboardState extends State<InstituteDashboard> {
           noOfStudents = data['registeredStudents'].length;
           noOfTeachers = data['registeredTeachers'].length;
           noOfCourses = data['courseList'].length;
-          isLoading = false;
         });
       } else {
         setState(() {
           errorMessage = 'Failed to load data. Please try again later.';
-          isLoading = false;
         });
       }
     } catch (e) {
       setState(() {
         errorMessage = 'Error: $e';
-        isLoading = false;
       });
     }
   }
