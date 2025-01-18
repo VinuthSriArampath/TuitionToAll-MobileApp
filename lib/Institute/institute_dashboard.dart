@@ -1,14 +1,66 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
+
+import '../widgets/institute_drawer.dart';
+import '../widgets/institute_navbar.dart';
+
 
 class InstituteDashboard extends StatefulWidget {
   const InstituteDashboard({super.key});
 
   @override
-  State<InstituteDashboard> createState() => _InstituteDashboardState();
+  InstituteDashboardState createState() => InstituteDashboardState();
 }
 
-class _InstituteDashboardState extends State<InstituteDashboard> {
+class InstituteDashboardState extends State<InstituteDashboard> {
+  int noOfStudents = 0;
+  int noOfTeachers = 0;
+  int noOfCourses = 0;
+  List<Map<String, dynamic>> courseList = [];
+  bool isLoading = true; // To show loading indicator
+  String errorMessage = '';
+
+  @override
+  void initState() {
+    super.initState();
+    fetchInstituteData();
+  }
+
+  Future<void> fetchInstituteData() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final instituteId = prefs.getString('id');
+
+    try {
+      final response = await http.get(
+        Uri.parse('http://localhost:8080/institutes/search/$instituteId'),
+      );
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+
+        setState(() {
+          courseList = List<Map<String, dynamic>>.from(data['courseList']);
+          noOfStudents = data['registeredStudents'].length;
+          noOfTeachers = data['registeredTeachers'].length;
+          noOfCourses = data['courseList'].length;
+          isLoading = false;
+        });
+      } else {
+        setState(() {
+          errorMessage = 'Failed to load data. Please try again later.';
+          isLoading = false;
+        });
+      }
+    } catch (e) {
+      setState(() {
+        errorMessage = 'Error: $e';
+        isLoading = false;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
