@@ -1,4 +1,5 @@
 # TuitionToAll-MobileApp
 
-Fluuter Project For TuitionToAll project made using SpringBoot and Angular
+Flutter Project For TuitionToAll project made using SpringBoot and Angular
+
 
