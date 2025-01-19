@@ -122,19 +122,22 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: login,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: login,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
-                  ),
-                  child: const Text(
-                    'Login',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    child: const Text(
+                      'Login',
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -144,8 +147,8 @@ class _LoginState extends State<Login> {
                     GestureDetector(
                       onTap: () {},
                       child: const Text(
-                        'Register My Institute',
-                        style: TextStyle(color: Color(0xFF02748D), fontSize: 16),
+                        'Signup Institute',
+                        style: TextStyle(color: Color(0xFF02748D), fontSize: 14),
                       ),
                     ),
                     GestureDetector(
@@ -154,7 +157,7 @@ class _LoginState extends State<Login> {
                       },
                       child: const Text(
                         'Forgot Password?',
-                        style: TextStyle(color: Color(0xFF02748D), fontSize: 16),
+                        style: TextStyle(color: Color(0xFF02748D), fontSize: 14),
                       ),
                     ),
                   ],
