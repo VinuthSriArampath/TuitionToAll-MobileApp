@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:tutiontoall_mobile/Institute/institute_dashboard.dart';
+import 'package:tutiontoall_mobile/change_password.dart';
 import 'package:tutiontoall_mobile/widgets/alert.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -72,7 +73,8 @@ class _LoginState extends State<Login> {
         height: double.infinity,
         color: const Color(0xFFDDF2FF),
         child: Center(
-          child: Container(
+          child:
+          Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
             decoration: BoxDecoration(
               color: Colors.white,
@@ -91,7 +93,6 @@ class _LoginState extends State<Login> {
               children: [
                 Image.asset(
                   "logo.png",
-
                 ),
                 const Text(
                   'Login',
@@ -148,7 +149,9 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>const ChangePassword()));
+                      },
                       child: const Text(
                         'Forgot Password?',
                         style: TextStyle(color: Color(0xFF02748D), fontSize: 16),
