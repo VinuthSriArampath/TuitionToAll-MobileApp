@@ -3,10 +3,10 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tutiontoall_mobile/login.dart';
 import 'package:tutiontoall_mobile/providers/OtpProvider.dart';
+import 'package:tutiontoall_mobile/providers/loading_provider.dart';
 import 'package:tutiontoall_mobile/widgets/alert.dart';
 import 'package:http/http.dart' as http;
 
-final loadingProvider = StateProvider<bool>((ref) => false);
 
 class InstituteRegister extends ConsumerStatefulWidget {
   const InstituteRegister({super.key});
@@ -42,6 +42,7 @@ class _InstituteRegisterState extends ConsumerState<InstituteRegister> {
         String otp = response.body;
         ref.read(otpProvider.notifier).state = otp;
         showAlertDialog(context, "Your OTP", otp);
+
       } catch (e) {
         showAlertDialog(context, "Error", "Something went wrong. Please try again.");
       }
