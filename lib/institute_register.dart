@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tutiontoall_mobile/institute_register_otp.dart';
 import 'package:tutiontoall_mobile/login.dart';
+import 'package:tutiontoall_mobile/model/institute_model.dart';
 import 'package:tutiontoall_mobile/providers/OtpProvider.dart';
+import 'package:tutiontoall_mobile/providers/institute_provider.dart';
 import 'package:tutiontoall_mobile/providers/loading_provider.dart';
 import 'package:tutiontoall_mobile/widgets/alert.dart';
 import 'package:http/http.dart' as http;
@@ -24,7 +27,7 @@ class _InstituteRegisterState extends ConsumerState<InstituteRegister> {
   final TextEditingController instituteConfirmPasswordController = TextEditingController();
 
   register(BuildContext context, WidgetRef ref) async {
-    ref.read(loadingProvider.notifier).state = true; // Show loader
+    ref.read(loadingProvider.notifier).state = true;
 
     await dotenv.load(fileName: '.env');
     String instituteBaseUrl = dotenv.env['INSTITUTE_BASEURL'] ?? '';
@@ -41,14 +44,15 @@ class _InstituteRegisterState extends ConsumerState<InstituteRegister> {
         final response = await http.get(Uri.parse('$instituteBaseUrl/otp/$instituteEmail'));
         String otp = response.body;
         ref.read(otpProvider.notifier).state = otp;
-        showAlertDialog(context, "Your OTP", otp);
-
+        ref.read(instituteProvider.notifier).state= Institute(name: instituteName, email: instituteEmail, contact: instituteContact, address: instituteAddress, password: institutePassword);
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>const InstituteRegisterOtp()));
       } catch (e) {
+        print(e);
         showAlertDialog(context, "Error", "Something went wrong. Please try again.");
       }
     }
 
-    ref.read(loadingProvider.notifier).state = false; // Hide loader
+    ref.read(loadingProvider.notifier).state = false;
   }
 
   bool validator(String name, String contact, String email, String address, String password, String confirmPassword) {
