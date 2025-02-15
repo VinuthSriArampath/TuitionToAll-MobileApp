@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tutiontoall_mobile/institute_register_otp.dart';
-import 'package:tutiontoall_mobile/login.dart';
 import 'package:tutiontoall_mobile/model/institute_model.dart';
 import 'package:tutiontoall_mobile/providers/OtpProvider.dart';
 import 'package:tutiontoall_mobile/providers/institute_provider.dart';
@@ -125,7 +124,7 @@ class _InstituteRegisterState extends ConsumerState<InstituteRegister> {
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                           ),
                           child: isLoading
-                              ? const CircularProgressIndicator(color: Colors.white)
+                              ? const CircularProgressIndicator(color: Colors.white,)
                               : const Text("Register", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                         ),
                       ),
