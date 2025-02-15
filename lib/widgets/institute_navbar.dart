@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class InstituteNavbar extends StatelessWidget {
-  const InstituteNavbar({super.key});
+  final String title;
+  const InstituteNavbar({super.key,required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class InstituteNavbar extends StatelessWidget {
                   width: 50,
                 ) ,
                 const SizedBox(width: 10),
-                const Text('Institute Dashboard', style: TextStyle(fontSize: 20)),
+                Text(style: const TextStyle(fontSize: 20), title),
               ],
             ),
           );

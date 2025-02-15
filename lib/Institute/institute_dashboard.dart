@@ -63,55 +63,57 @@ class InstituteDashboardState extends State<InstituteDashboard> {
       child: Scaffold(
         appBar: const PreferredSize(
           preferredSize: Size.fromHeight(kToolbarHeight),
-          child: InstituteNavbar(),
+          child: InstituteNavbar(title: "Dashboard",),
         ),
         drawer: const InstituteDrawer(),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
-          child:Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  _buildStatCard("No Of Students", noOfStudents.toString()),
-                  _buildStatCard("No Of Teachers", noOfTeachers.toString()),
-                  _buildStatCard("No Of Courses", noOfCourses.toString()),
-                ],
-              ),
-              const SizedBox(height: 20),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+          child:SingleChildScrollView(
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    const Text(
-                      "Course Details",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Expanded(
-                      child: ListView.builder(
-                        itemCount: courseList.length,
-                        itemBuilder: (context, index) {
-                          final course = courseList[index];
-                          return Card(
-                            margin: const EdgeInsets.symmetric(vertical: 5),
-                            child: ListTile(
-                              leading: Text((index + 1).toString()),
-                              title: Text(course['name']),
-                              subtitle: Text("Type: ${course['type']}"),
-                              trailing: Text("ID: ${course['id']}"),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
+                    _buildStatCard("No Of Students", noOfStudents.toString()),
+                    _buildStatCard("No Of Teachers", noOfTeachers.toString()),
+                    _buildStatCard("No Of Courses", noOfCourses.toString()),
                   ],
                 ),
-              ),
-            ],
+                const SizedBox(height: 20),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        "Course Details",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Expanded(
+                        child: ListView.builder(
+                          itemCount: courseList.length,
+                          itemBuilder: (context, index) {
+                            final course = courseList[index];
+                            return Card(
+                              margin: const EdgeInsets.symmetric(vertical: 5),
+                              child: ListTile(
+                                leading: Text((index + 1).toString()),
+                                title: Text(course['name']),
+                                subtitle: Text("Type: ${course['type']}"),
+                                trailing: Text("ID: ${course['id']}"),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ) // Show error message
         ),
       ),
