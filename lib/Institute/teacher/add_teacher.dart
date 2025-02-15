@@ -84,8 +84,10 @@ class _AddTeacherState extends ConsumerState<AddTeacher> {
         addressController.text="";
         passwordController.text="";
         confirmPasswordController.text="";
+        ref.read(loadingProvider.notifier).state = false;
       } else {
         showAlertDialog(context, "Registration Failed", "$firstName $lastName Registration as a teacher failed");
+        ref.read(loadingProvider.notifier).state = false;
       }
     }
   }
