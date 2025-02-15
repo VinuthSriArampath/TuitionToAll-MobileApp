@@ -35,7 +35,7 @@ class _InstituteRegisterOtpState extends ConsumerState<InstituteRegisterOtp> {
         if (otp == userOtp) {
           var headers = {'Content-Type': 'application/json'};
           var request = http.Request(
-              'POST', Uri.parse('http://localhost:8080/institutes/register'));
+              'POST', Uri.parse('$instituteBaseUrl/register'));
           request.body = json.encode({
             "name": institute.name,
             "email": institute.email,
