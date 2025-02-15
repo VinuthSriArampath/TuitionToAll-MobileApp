@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 Future<void> showAlertDialog(BuildContext context, String title, String message) async {
-  showDialog(
+  return showDialog<void>(
     context: context,
+    barrierDismissible: false,
     builder: (context) {
       return AlertDialog(
         title: Text(
@@ -25,7 +26,7 @@ Future<void> showAlertDialog(BuildContext context, String title, String message)
         ),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () => Navigator.of(context).pop(),
             style: TextButton.styleFrom(
               foregroundColor: Colors.white,
               backgroundColor: Colors.black,
