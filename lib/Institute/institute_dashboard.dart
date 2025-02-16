@@ -70,6 +70,7 @@ class InstituteDashboardState extends State<InstituteDashboard> {
           padding: const EdgeInsets.all(16.0),
           child:SingleChildScrollView(
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -80,37 +81,34 @@ class InstituteDashboardState extends State<InstituteDashboard> {
                   ],
                 ),
                 const SizedBox(height: 20),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "Course Details",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Course Details",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
                       ),
-                      const SizedBox(height: 10),
-                      Expanded(
-                        child: ListView.builder(
-                          itemCount: courseList.length,
-                          itemBuilder: (context, index) {
-                            final course = courseList[index];
-                            return Card(
-                              margin: const EdgeInsets.symmetric(vertical: 5),
-                              child: ListTile(
-                                leading: Text((index + 1).toString()),
-                                title: Text(course['name']),
-                                subtitle: Text("Type: ${course['type']}"),
-                                trailing: Text("ID: ${course['id']}"),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                    const SizedBox(height: 10),
+                    ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: courseList.length,
+                      itemBuilder: (context, index) {
+                        final course = courseList[index];
+                        return Card(
+                          margin: const EdgeInsets.symmetric(vertical: 5),
+                          child: ListTile(
+                            leading: Text((index + 1).toString()),
+                            title: Text(course['name']),
+                            subtitle: Text("Type: ${course['type']}"),
+                            trailing: Text("ID: ${course['id']}"),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),
