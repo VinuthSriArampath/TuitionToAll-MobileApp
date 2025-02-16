@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tutiontoall_mobile/Institute/institute_dashboard.dart';
+import 'package:tutiontoall_mobile/Institute/teacher/add_teacher.dart';
 import 'package:tutiontoall_mobile/login.dart';
 
 class InstituteDrawer extends StatefulWidget {
@@ -22,7 +24,7 @@ class _InstituteDrawerState extends State<InstituteDrawer> {
           ListTile(
             title: const Text('Dashboard'),
             onTap: () {
-              Navigator.pushNamed(context, '/institute/dashboard');
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>const InstituteDashboard()));
             },
           ),
           ExpansionTile(
@@ -113,7 +115,7 @@ class _InstituteDrawerState extends State<InstituteDrawer> {
               ListTile(
                 title: const Text('Add Teacher'),
                 onTap: () {
-                  Navigator.pushNamed(context, '/institute/teacher/add-teacher');
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const AddTeacher()));
                 },
               ),
               ListTile(
