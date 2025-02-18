@@ -80,7 +80,6 @@ class _UpdateTeacherState extends ConsumerState<UpdateTeacher> {
   }
 
   bool validator(String firstName,String lastName,DateTime birthday,String contact,String email,String address) {
-    final RegExp passwordRegex =RegExp(r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$');
     final RegExp contactRegex = RegExp(r'^0\d{9}$');
     final RegExp emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
 
