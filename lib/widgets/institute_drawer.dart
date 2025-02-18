@@ -5,6 +5,7 @@ import 'package:tutiontoall_mobile/Institute/institute_dashboard.dart';
 import 'package:tutiontoall_mobile/Institute/student/add_student.dart';
 import 'package:tutiontoall_mobile/Institute/student/update_student.dart';
 import 'package:tutiontoall_mobile/Institute/teacher/add_teacher.dart';
+import 'package:tutiontoall_mobile/Institute/teacher/delete_teacher.dart';
 import 'package:tutiontoall_mobile/Institute/teacher/update_teacher.dart';
 import 'package:tutiontoall_mobile/login.dart';
 
@@ -131,7 +132,7 @@ class _InstituteDrawerState extends State<InstituteDrawer> {
               ListTile(
                 title: const Text('Remove Teacher'),
                 onTap: () {
-                  Navigator.pushNamed(context, '/institute/teacher/remove');
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const DeleteTeacher()));
                 },
               ),
               ListTile(
