@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tutiontoall_mobile/Institute/course/add_course.dart';
 import 'package:tutiontoall_mobile/Institute/institute_dashboard.dart';
 import 'package:tutiontoall_mobile/Institute/student/add_student.dart';
 import 'package:tutiontoall_mobile/Institute/teacher/add_teacher.dart';
@@ -40,7 +41,7 @@ class _InstituteDrawerState extends State<InstituteDrawer> {
               ListTile(
                 title: const Text('Add Course'),
                 onTap: () {
-                  Navigator.pushNamed(context, '/institute/course/add-course');
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const AddCourse()));
                 },
               ),
               ListTile(
