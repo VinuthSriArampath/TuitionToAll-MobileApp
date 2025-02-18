@@ -4,6 +4,7 @@ import 'package:tutiontoall_mobile/Institute/course/add_course.dart';
 import 'package:tutiontoall_mobile/Institute/institute_dashboard.dart';
 import 'package:tutiontoall_mobile/Institute/student/add_student.dart';
 import 'package:tutiontoall_mobile/Institute/teacher/add_teacher.dart';
+import 'package:tutiontoall_mobile/Institute/teacher/update_teacher.dart';
 import 'package:tutiontoall_mobile/login.dart';
 
 class InstituteDrawer extends StatefulWidget {
@@ -123,7 +124,7 @@ class _InstituteDrawerState extends State<InstituteDrawer> {
               ListTile(
                 title: const Text('Update Teacher'),
                 onTap: () {
-                  Navigator.pushNamed(context, '/institute/teacher/update');
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const UpdateTeacher()));
                 },
               ),
               ListTile(
