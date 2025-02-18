@@ -68,7 +68,7 @@ class _AddTeacherState extends ConsumerState<DeleteTeacher> {
     String? instituteId = prefs.getString('id');
     if(isSearched){
       String? teacherId=teacher?.id;
-      var request = http.Request('DELETE', Uri.parse('http://localhost:8080/institutes/$instituteId/teacher/remove/$teacherId'));
+      var request = http.Request('DELETE', Uri.parse('$instituteBaseUrl/$instituteId/teacher/remove/$teacherId'));
 
       http.StreamedResponse response = await request.send();
 
