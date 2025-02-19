@@ -16,10 +16,10 @@ class DeleteStudent extends ConsumerStatefulWidget {
   const DeleteStudent({super.key});
 
   @override
-  ConsumerState<DeleteStudent> createState() => _AddTeacherState();
+  ConsumerState<DeleteStudent> createState() => _DeleteStudentState();
 }
 
-class _AddTeacherState extends ConsumerState<DeleteStudent> {
+class _DeleteStudentState extends ConsumerState<DeleteStudent> {
 
   final TextEditingController searchValueController = TextEditingController();
 

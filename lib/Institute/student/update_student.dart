@@ -15,10 +15,10 @@ class UpdateStudent extends ConsumerStatefulWidget {
   const UpdateStudent({super.key});
 
   @override
-  ConsumerState<UpdateStudent> createState() => _UpdateTeacherState();
+  ConsumerState<UpdateStudent> createState() => _UpdateStudentState();
 }
 
-class _UpdateTeacherState extends ConsumerState<UpdateStudent> {
+class _UpdateStudentState extends ConsumerState<UpdateStudent> {
 
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
