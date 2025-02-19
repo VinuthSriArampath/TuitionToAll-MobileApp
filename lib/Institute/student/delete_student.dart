@@ -5,7 +5,6 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tutiontoall_mobile/model/student_model.dart';
-import 'package:tutiontoall_mobile/model/teacher_model.dart';
 import 'package:tutiontoall_mobile/providers/loading_provider.dart';
 import 'package:tutiontoall_mobile/widgets/alert.dart';
 import 'package:tutiontoall_mobile/widgets/institute_drawer.dart';
