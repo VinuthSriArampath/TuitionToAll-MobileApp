@@ -245,7 +245,7 @@ class _UpdateCourseState extends ConsumerState<UpdateCourse> {
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight),
         child: InstituteNavbar(
-          title: "Add course",
+          title: "Update course",
         ),
       ),
       drawer: const InstituteDrawer(),
