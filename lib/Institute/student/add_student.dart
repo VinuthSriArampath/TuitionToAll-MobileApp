@@ -159,7 +159,7 @@ class _AddStudentState extends ConsumerState<AddStudent> {
       }
       else {
         ref.read(loadingProvider.notifier).state=false;
-        showAlertDialog(context, "Student Not Searched", "Search a student before adding to the institute");
+        showAlertDialog(context, "Error", "Something went wrong");
       }
 
     }else{
