@@ -43,7 +43,7 @@ class _InstituteRegisterState extends ConsumerState<InstituteRegister> {
         final response = await http.get(Uri.parse('$instituteBaseUrl/otp/$instituteEmail'));
         String otp = response.body;
         ref.read(otpProvider.notifier).state = otp;
-        ref.read(instituteProvider.notifier).state= Institute(name: instituteName, email: instituteEmail, contact: instituteContact, address: instituteAddress, password: institutePassword);
+        ref.read(instituteProvider.notifier).state= Institute(name: instituteName, email: instituteEmail, contact: instituteContact, address: instituteAddress, password: institutePassword, id: '', registeredTeachers: []);
         Navigator.push(context, MaterialPageRoute(builder: (context)=>const InstituteRegisterOtp()));
       } catch (e) {
         print(e);
