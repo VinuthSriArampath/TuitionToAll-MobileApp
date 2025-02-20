@@ -6,6 +6,7 @@ import 'package:tutiontoall_mobile/Institute/course/update_course.dart';
 import 'package:tutiontoall_mobile/Institute/institute_dashboard.dart';
 import 'package:tutiontoall_mobile/Institute/student/add_student.dart';
 import 'package:tutiontoall_mobile/Institute/student/delete_student.dart';
+import 'package:tutiontoall_mobile/Institute/student/search_student.dart';
 import 'package:tutiontoall_mobile/Institute/student/update_student.dart';
 import 'package:tutiontoall_mobile/Institute/teacher/add_teacher.dart';
 import 'package:tutiontoall_mobile/Institute/teacher/delete_teacher.dart';
@@ -107,7 +108,7 @@ class _InstituteDrawerState extends State<InstituteDrawer> {
               ListTile(
                 title: const Text('Search Student'),
                 onTap: () {
-                  Navigator.pushNamed(context, '/institute/student/search');
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const SearchStudent()));
                 },
               ),
             ],
