@@ -1,4 +1,6 @@
 
+import 'package:tutiontoall_mobile/model/registered_students_model.dart';
+
 class Student{
   final String id;
   final String firstName;
@@ -8,8 +10,9 @@ class Student{
   final String email;
   final String address;
   final String password;
+  final List<RegisteredStudents> registeredInstitutes;
 
-  Student({required this.id, required this.firstName, required this.lastName, required this.dob, required this.contact, required this.email, required this.address, required this.password});
+  Student({required this.id, required this.firstName, required this.lastName, required this.dob, required this.contact, required this.email, required this.address, required this.password,required this.registeredInstitutes});
 
   factory Student.fromJson(Map<String,dynamic> json){
     return Student(
@@ -20,7 +23,10 @@ class Student{
       contact: json['contact'],
       email: json['email'],
       address: json['address'],
-      password: json['password']
+      password: json['password'],
+      registeredInstitutes: (json['registeredInstitutes'] as List<dynamic>)
+        .map((e) => RegisteredStudents.fromJson(e))
+        .toList()
     );
   }
 }
