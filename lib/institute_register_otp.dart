@@ -54,7 +54,7 @@ class _InstituteRegisterOtpState extends ConsumerState<InstituteRegisterOtp> {
 
         if (response.statusCode == 200) {
           ref.read(loadingProvider.notifier).state = false;
-          ref.read(instituteProvider.notifier).state = Institute(name: "", email: "", contact: "", address: "", password: "", id: '', registeredTeachers: [], registeredStudents: []);
+          ref.read(instituteProvider.notifier).state = Institute(name: "", email: "", contact: "", address: "", password: "", id: '', registeredTeachers: [], registeredStudents: [], courseList: []);
           await showAlertDialog(context, "Registration Successful",
               "You Have been successfully registered!");
           Navigator.pushAndRemoveUntil(
