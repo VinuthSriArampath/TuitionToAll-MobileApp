@@ -9,7 +9,7 @@ import 'package:http/http.dart' as http;
 
 import '../../widgets/alert.dart';
 import '../../widgets/institute_drawer.dart';
-import '../../widgets/institute_navbar.dart';
+import '../../widgets/navbar.dart';
 
 class UpdateStudent extends ConsumerStatefulWidget {
   const UpdateStudent({super.key});
@@ -180,7 +180,7 @@ class _UpdateStudentState extends ConsumerState<UpdateStudent> {
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight),
-        child: InstituteNavbar(
+        child: Navbar(
           title: "Update students",
         ),
       ),

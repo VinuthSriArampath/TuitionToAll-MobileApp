@@ -7,7 +7,7 @@ import 'package:tutiontoall_mobile/widgets/alert.dart';
 import 'dart:convert';
 
 import '../widgets/institute_drawer.dart';
-import '../widgets/institute_navbar.dart';
+import '../widgets/navbar.dart';
 
 class InstituteProfile extends StatefulWidget {
   const InstituteProfile({super.key});
@@ -135,7 +135,7 @@ class _InstituteProfileState extends State<InstituteProfile> {
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight),
-        child: InstituteNavbar(title: "Dashboard",),
+        child: Navbar(title: "Dashboard",),
       ),
       drawer: const InstituteDrawer(),
       body: Center(

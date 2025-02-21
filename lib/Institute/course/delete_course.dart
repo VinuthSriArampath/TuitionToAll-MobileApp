@@ -8,7 +8,7 @@ import 'package:tutiontoall_mobile/model/course_model.dart';
 import 'package:tutiontoall_mobile/providers/loading_provider.dart';
 import 'package:tutiontoall_mobile/widgets/alert.dart';
 import 'package:tutiontoall_mobile/widgets/institute_drawer.dart';
-import 'package:tutiontoall_mobile/widgets/institute_navbar.dart';
+import 'package:tutiontoall_mobile/widgets/navbar.dart';
 import 'package:http/http.dart' as http;
 
 class DeleteCourse extends ConsumerStatefulWidget {
@@ -122,7 +122,7 @@ class _DeleteCourseState extends ConsumerState<DeleteCourse> {
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight),
-        child: InstituteNavbar(
+        child: Navbar(
           title: "Delete course",
         ),
       ),

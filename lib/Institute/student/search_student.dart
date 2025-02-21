@@ -11,7 +11,7 @@ import 'package:tutiontoall_mobile/providers/loading_provider.dart';
 
 import '../../widgets/alert.dart';
 import '../../widgets/institute_drawer.dart';
-import '../../widgets/institute_navbar.dart';
+import '../../widgets/navbar.dart';
 
 class SearchStudent extends ConsumerStatefulWidget {
   const SearchStudent({super.key});
@@ -120,7 +120,7 @@ class _SearchStudentState extends ConsumerState<SearchStudent> {
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight),
-        child: InstituteNavbar(
+        child: Navbar(
           title: "Search students",
         ),
       ),
