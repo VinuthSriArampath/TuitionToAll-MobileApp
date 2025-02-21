@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tutiontoall_mobile/login.dart';
+import 'package:tutiontoall_mobile/teacher/teacher_dashboard.dart';
 
 class TeacherDrawer extends StatefulWidget {
   const TeacherDrawer({super.key});
@@ -22,7 +23,7 @@ class _TeacherDrawerState extends State<TeacherDrawer> {
           ListTile(
             title: const Text('Dashboard'),
             onTap: () {
-              // Navigator.push(context, MaterialPageRoute(builder: (context)=>const InstituteDashboard()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>const TeacherDashboard()));
             },
           ),
           ListTile(
