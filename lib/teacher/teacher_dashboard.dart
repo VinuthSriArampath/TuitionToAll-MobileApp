@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tutiontoall_mobile/model/institute_model.dart';
 import 'package:tutiontoall_mobile/model/teacher_model.dart';
+import 'package:tutiontoall_mobile/teacher/teacher_course_screen.dart';
 import 'package:tutiontoall_mobile/widgets/alert.dart';
 import 'package:tutiontoall_mobile/widgets/navbar.dart';
 import 'package:tutiontoall_mobile/widgets/teacher_drawer.dart';
@@ -115,7 +116,7 @@ class TeacherDashboardState extends State<TeacherDashboard> {
                         var course = instituteCourseList[i][j];
                         return GestureDetector(
                           onTap: () {
-                            // Navigator.pushNamed(context, '/teacher/dashboard/course/${course['id']}');
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> TeacherCourseScreen(course: course,)));
                           },
                           child: Card(
                             elevation: 3,
