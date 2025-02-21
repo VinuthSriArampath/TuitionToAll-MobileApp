@@ -1,3 +1,4 @@
+import 'package:tutiontoall_mobile/model/course_model.dart';
 import 'package:tutiontoall_mobile/model/registered_teachers_model.dart';
 
 class Teacher{
@@ -10,8 +11,9 @@ class Teacher{
   final String address;
   final String password;
   final List<RegisteredTeachers> registeredInstitutes;
+  final List<Course> registeredCourses;
 
-  Teacher({required this.id, required this.firstName, required this.lastName, required this.dob, required this.contact, required this.email, required this.address, required this.password,required this.registeredInstitutes});
+  Teacher({required this.id, required this.firstName, required this.lastName, required this.dob, required this.contact, required this.email, required this.address, required this.password,required this.registeredInstitutes,required this.registeredCourses});
 
   factory Teacher.fromJson(Map<String, dynamic> json) {
     return Teacher(
@@ -26,6 +28,9 @@ class Teacher{
       registeredInstitutes: (json['registeredInstitutes'] as List<dynamic>)
           .map((e) => RegisteredTeachers.fromJson(e))
           .toList(),
+      registeredCourses: (json['registeredCourses'] as List<dynamic>)
+        .map((e)=> Course.fromJson(e))
+        .toList()
     );
   }
 
