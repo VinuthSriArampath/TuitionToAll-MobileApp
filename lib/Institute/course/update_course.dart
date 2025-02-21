@@ -443,7 +443,7 @@ class _UpdateCourseState extends ConsumerState<UpdateCourse> {
     );
   }
 
-  Widget buildLabel(String label, String value) {
+  Widget buildLabel(String label, String? value) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6.0),
       child: Row(
