@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:tutiontoall_mobile/Institute/institute_dashboard.dart';
 import 'package:tutiontoall_mobile/change_password.dart';
 import 'package:tutiontoall_mobile/institute_register.dart';
+import 'package:tutiontoall_mobile/teacher/teacher_dashboard.dart';
 import 'package:tutiontoall_mobile/widgets/alert.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -39,7 +40,7 @@ class _LoginState extends State<Login> {
     } else if (username.startsWith('S')) {
       url = dotenv.env['STUDENT_LOGIN']!;
     } else if (username.startsWith('T')) {
-      url = dotenv.env['INSTITUTE_LOGIN']!;
+      url = dotenv.env['TEACHER_LOGIN']!;
     } else {
       showAlertDialog(context,'Invalid Username', 'Please ');
       return;
@@ -55,9 +56,20 @@ class _LoginState extends State<Login> {
       if (response.statusCode == 200) {
         showAlertDialog(context,'Login Success', 'Welcome Back');
         await prefs.setString('id', username );
-        Navigator.push(context, MaterialPageRoute(
-            builder: (context)=>const InstituteDashboard()
-        ));
+        if (username.startsWith('I')) {
+          Navigator.push(context, MaterialPageRoute(
+              builder: (context)=>const InstituteDashboard()
+          ));
+        } else if (username.startsWith('S')) {
+          Navigator.push(context, MaterialPageRoute(
+              builder: (context)=>const InstituteDashboard()
+          ));
+        } else if (username.startsWith('T')) {
+          Navigator.push(context, MaterialPageRoute(
+              builder: (context)=>const TeacherDashboard()
+          ));
+        }
+
       } else {
         showAlertDialog(context,'Unauthorized Login', 'Check your username and password');
       }
